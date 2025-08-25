@@ -20,39 +20,160 @@
       background-color: #FFFFFF;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
     }
-    h1 {
-      font-size: 22px;
-      margin-bottom: 16px;
-      color: #000;
+    h1 { font-size: 22px; margin-bottom: 16px; color: #000; }
+    p { font-size: 16px; margin-bottom: 14px; }
+    a { color: #007AFF; text-decoration: none; }
+    .footer { margin-top: 30px; font-size: 14px; color: #888; }
+    .lang-selector { position: absolute; top: 10px; right: 20px; }
+    .lang-button {
+      background-color: #007AFF; color: white; border: none;
+      padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 14px;
     }
-    p {
-      font-size: 16px;
-      margin-bottom: 14px;
+    .lang-list {
+      display: none; position: absolute; top: 36px; right: 0;
+      background: white; border: 1px solid #ccc; border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000; min-width: 120px;
     }
-    a {
-      color: #007AFF;
-      text-decoration: none;
+    .lang-list.active { display: block; }
+    .lang-list button {
+      width: 100%; padding: 8px 12px; border: none; background: none;
+      text-align: left; cursor: pointer; font-size: 14px;
     }
-    .footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #888;
-    }
+    .lang-list button:hover { background-color: #f0f0f0; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>技术支持</h1>
-    <p>感谢您使用 <strong>TrueLive</strong>。</p>
-    <p>如果您在使用过程中遇到问题，或者有任何建议和反馈，欢迎通过以下方式联系我们：</p>
-    <p>📧 邮箱：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
-    <p>📱 当前版本：v1.0.0</p>
-    <p>我们将持续优化 TrueLive，为您带来更真实自然的 Live 拍摄体验。</p>
-
-    <div class="footer">
-      © 2025 TrueLive. 保留所有权利。
+    <div class="lang-selector">
+      <button id="langBtn" class="lang-button">语言 / Language</button>
+      <div id="langList" class="lang-list" aria-label="Select language">
+        <button data-lang="zh">中文</button>
+        <button data-lang="zh-Hant">繁體中文</button>
+        <button data-lang="en">English</button>
+        <button data-lang="ja">日本語</button>
+        <button data-lang="ko">한국어</button>
+        <button data-lang="ar">العربية</button>
+        <button data-lang="ru">Русский</button>
+        <button data-lang="fr">Français</button>
+        <button data-lang="de">Deutsch</button>
+        <button data-lang="es">Español</button>
+        <button data-lang="it">Italiano</button>
+      </div>
     </div>
+
+    <!-- 标题 -->
+    <h1 data-lang-content="zh">技术支持</h1>
+    <h1 data-lang-content="zh-Hant" style="display:none;">技術支援</h1>
+    <h1 data-lang-content="en" style="display:none;">Technical Support</h1>
+    <h1 data-lang-content="ja" style="display:none;">技術サポート</h1>
+    <h1 data-lang-content="ko" style="display:none;">기술 지원</h1>
+    <h1 data-lang-content="ar" style="display:none;">الدعم الفني</h1>
+    <h1 data-lang-content="ru" style="display:none;">Техническая поддержка</h1>
+    <h1 data-lang-content="fr" style="display:none;">Support Technique</h1>
+    <h1 data-lang-content="de" style="display:none;">Technischer Support</h1>
+    <h1 data-lang-content="es" style="display:none;">Soporte Técnico</h1>
+    <h1 data-lang-content="it" style="display:none;">Supporto Tecnico</h1>
+
+    <!-- 感谢 -->
+    <p data-lang-content="zh">感谢您使用 <strong>TrueLive</strong>。</p>
+    <p data-lang-content="zh-Hant" style="display:none;">感謝您使用 <strong>TrueLive</strong>。</p>
+    <p data-lang-content="en" style="display:none;">Thank you for using <strong>TrueLive</strong>.</p>
+    <p data-lang-content="ja" style="display:none;"><strong>TrueLive</strong>をご利用いただきありがとうございます。</p>
+    <p data-lang-content="ko" style="display:none;"><strong>TrueLive</strong>를 이용해 주셔서 감사합니다.</p>
+    <p data-lang-content="ar" style="display:none;">شكرًا لاستخدامك <strong>TrueLive</strong>.</p>
+    <p data-lang-content="ru" style="display:none;">Спасибо за использование <strong>TrueLive</strong>.</p>
+    <p data-lang-content="fr" style="display:none;">Merci d’utiliser <strong>TrueLive</strong>.</p>
+    <p data-lang-content="de" style="display:none;">Vielen Dank für die Nutzung von <strong>TrueLive</strong>.</p>
+    <p data-lang-content="es" style="display:none;">Gracias por usar <strong>TrueLive</strong>.</p>
+    <p data-lang-content="it" style="display:none;">Grazie per usare <strong>TrueLive</strong>.</p>
+
+    <!-- 联系方式 -->
+    <p data-lang-content="zh">如果您在使用过程中遇到问题，或者有任何建议和反馈，欢迎通过以下方式联系我们：</p>
+    <p data-lang-content="zh-Hant" style="display:none;">如果您在使用過程中遇到問題，或者有任何建議和反饋，歡迎通過以下方式聯繫我們：</p>
+    <p data-lang-content="en" style="display:none;">If you encounter any issues or have feedback, please contact us through:</p>
+    <p data-lang-content="ja" style="display:none;">ご利用中に問題が発生した場合やご意見・ご要望がある場合は、以下の方法でご連絡ください：</p>
+    <p data-lang-content="ko" style="display:none;">사용 중 문제가 있거나 의견이 있으시면 아래 연락처로 문의해 주세요:</p>
+    <p data-lang-content="ar" style="display:none;">إذا واجهت أي مشاكل أو كان لديك أي اقتراحات، يرجى الاتصال بنا عبر:</p>
+    <p data-lang-content="ru" style="display:none;">Если у вас возникнут проблемы или есть предложения, свяжитесь с нами через:</p>
+    <p data-lang-content="fr" style="display:none;">Si vous rencontrez des problèmes ou avez des suggestions, veuillez nous contacter via :</p>
+    <p data-lang-content="de" style="display:none;">Wenn Sie Probleme haben oder Feedback geben möchten, kontaktieren Sie uns bitte über:</p>
+    <p data-lang-content="es" style="display:none;">Si encuentra algún problema o tiene comentarios, contáctenos a través de:</p>
+    <p data-lang-content="it" style="display:none;">Se riscontri problemi o suggerimenti, contattaci tramite:</p>
+
+    <p data-lang-content="zh">📧 邮箱：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="zh-Hant" style="display:none;">📧 郵箱：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="en" style="display:none;">📧 Email: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="ja" style="display:none;">📧 メール：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="ko" style="display:none;">📧 이메일: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="ar" style="display:none;">📧 البريد الإلكتروني: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="ru" style="display:none;">📧 Эл. почта: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="fr" style="display:none;">📧 Email : <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="de" style="display:none;">📧 E-Mail: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="es" style="display:none;">📧 Correo: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    <p data-lang-content="it" style="display:none;">📧 Email: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+
+    <!-- 版本信息 -->
+    <p data-lang-content="zh">📱 当前版本：v1.1.0</p>
+    <p data-lang-content="zh-Hant" style="display:none;">📱 當前版本：v1.1.0</p>
+    <p data-lang-content="en" style="display:none;">📱 Current version: v1.1.0</p>
+    <p data-lang-content="ja" style="display:none;">📱 現在のバージョン：v1.1.0</p>
+    <p data-lang-content="ko" style="display:none;">📱 현재 버전: v1.1.0</p>
+    <p data-lang-content="ar" style="display:none;">📱 الإصدار الحالي: v1.1.0</p>
+    <p data-lang-content="ru" style="display:none;">📱 Текущая версия: v1.1.0</p>
+    <p data-lang-content="fr" style="display:none;">📱 Version actuelle : v1.1.0</p>
+    <p data-lang-content="de" style="display:none;">📱 Aktuelle Version: v1.1.0</p>
+    <p data-lang-content="es" style="display:none;">📱 Versión actual: v1.1.0</p>
+    <p data-lang-content="it" style="display:none;">📱 Versione corrente: v1.1.0</p>
+
+    <!-- 结尾 -->
+    <p data-lang-content="zh">我们将持续优化 TrueLive，为您带来更真实自然的 Live 拍摄体验。</p>
+    <p data-lang-content="zh-Hant" style="display:none;">我們將持續優化 TrueLive，為您帶來更真實自然的 Live 拍攝體驗。</p>
+    <p data-lang-content="en" style="display:none;">We will keep improving TrueLive to bring you a more authentic Live photo experience.</p>
+    <p data-lang-content="ja" style="display:none;">よりリアルで自然なLive撮影体験をお届けするため、TrueLiveを継続的に改善してまいります。</p>
+    <p data-lang-content="ko" style="display:none;">더 진짜 같은 Live 촬영 경험을 제공하기 위해 TrueLive를 계속 개선해 나가겠습니다.</p>
+    <p data-lang-content="ar" style="display:none;">سنواصل تحسين TrueLive لتقديم تجربة تصوير Live أكثر واقعية وطبيعية لك.</p>
+    <p data-lang-content="ru" style="display:none;">Мы будем продолжать улучшать TrueLive, чтобы вы могли получать более реалистичный опыт съемки Live.</p>
+    <p data-lang-content="fr" style="display:none;">Nous continuerons à améliorer TrueLive pour vous offrir une expérience de photo Live plus authentique.</p>
+    <p data-lang-content="de" style="display:none;">Wir werden TrueLive weiterhin verbessern, um Ihnen ein authentischeres Live-Foto-Erlebnis zu bieten.</p>
+    <p data-lang-content="es" style="display:none;">Seguiremos mejorando TrueLive para ofrecerte una experiencia de fotos Live más auténtica.</p>
+    <p data-lang-content="it" style="display:none;">Continueremo a migliorare TrueLive per offrirti un’esperienza di foto Live più autentica.</p>
+
+    <div class="footer" data-lang-content="zh">© 2025 TrueLive. 保留所有权利。</div>
+    <div class="footer" data-lang-content="zh-Hant" style="display:none;">© 2025 TrueLive. 保留所有權利。</div>
+    <div class="footer" data-lang-content="en" style="display:none;">© 2025 TrueLive. All rights reserved.</div>
+    <div class="footer" data-lang-content="ja" style="display:none;">© 2025 TrueLive. 無断転載禁止。</div>
+    <div class="footer" data-lang-content="ko" style="display:none;">© 2025 TrueLive. 판권 소유.</div>
+    <div class="footer" data-lang-content="ar" style="display:none;">© 2025 TrueLive. جميع الحقوق محفوظة.</div>
+    <div class="footer" data-lang-content="ru" style="display:none;">© 2025 TrueLive. Все права защищены.</div>
+    <div class="footer" data-lang-content="fr" style="display:none;">© 2025 TrueLive. Tous droits réservés.</div>
+    <div class="footer" data-lang-content="de" style="display:none;">© 2025 TrueLive. Alle Rechte vorbehalten.</div>
+    <div class="footer" data-lang-content="es" style="display:none;">© 2025 TrueLive. Todos los derechos reservados.</div>
+    <div class="footer" data-lang-content="it" style="display:none;">© 2025 TrueLive. Tutti i diritti riservati.</div>
   </div>
+
+  <script>
+    const langBtn = document.getElementById('langBtn');
+    const langList = document.getElementById('langList');
+    const langButtons = langList.querySelectorAll('button');
+    const contents = document.querySelectorAll('[data-lang-content]');
+
+    langBtn.addEventListener('click', () => langList.classList.toggle('active'));
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedLang = btn.getAttribute('data-lang');
+        contents.forEach(el => {
+          el.style.display = el.getAttribute('data-lang-content') === selectedLang ? '' : 'none';
+        });
+        langList.classList.remove('active');
+        langBtn.textContent = btn.textContent;
+        document.documentElement.lang = selectedLang.startsWith('zh') ? 'zh-CN' : selectedLang;
+      });
+    });
+
+    window.addEventListener('load', () => langBtn.textContent = '中文');
+  </script>
 </body>
 </html>

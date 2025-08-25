@@ -1,72 +1,413 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>隐私政策 - TrueLive</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: #FAFAFA;
-      color: #1C1C1E;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #FFFFFF;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    h1 {
-      font-size: 22px;
-      margin-bottom: 16px;
-    }
-    h2 {
-      font-size: 18px;
-      margin-top: 24px;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>隐私政策 - TrueLive</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #FAFAFA;
+            color: #1C1C1E;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+        h2 {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+        p, ul {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        /* 语言选择弹窗样式 */
+        .lang-selector {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .lang-button {
+            background-color: #007AFF;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .lang-list {
+            display: none;
+            position: absolute;
+            top: 36px;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+            min-width: 140px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .lang-list.active {
+            display: block;
+        }
+        .lang-list button {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            background: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .lang-list button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>隐私政策</h1>
-    <p>欢迎使用 TrueLive（以下简称“本应用”）。我们非常重视您的隐私和个人信息保护。本政策旨在向您说明我们如何收集、使用和保护您的信息。</p>
+    <div class="container">
+        <div class="lang-selector">
+            <button id="langBtn" class="lang-button">语言 / Language</button>
+            <div id="langList" class="lang-list" aria-label="Select language">
+                <button data-lang="zh">中文 (简体)</button>
+                <button data-lang="zh-TW">中文 (繁體)</button>
+                <button data-lang="en">English</button>
+                <button data-lang="ja">日本語</button>
+                <button data-lang="ko">한국어</button>
+                <button data-lang="ar">العربية</button>
+                <button data-lang="fr">Français</button>
+                <button data-lang="de">Deutsch</button>
+                <button data-lang="ru">Русский</button>
+                <button data-lang="es">Español</button>
+                <button data-lang="it">Italiano</button>
+            </div>
+        </div>
 
-    <h2>1. 我们收集的信息</h2>
-    <p>在您使用本应用的过程中，我们可能会请求以下权限：</p>
-    <ul>
-      <li>📷 相机权限：用于拍摄 Live Photo。</li>
-      <li>🖼️ 相册权限：用于保存您拍摄的照片到相册。</li>
-      <li>🎙️ 麦克风权限（可选）：用于为 Live Photo 添加音频。</li>
-    </ul>
-    <p>我们不会收集或存储您的照片、音频或任何个人媒体内容。</p>
+        <h1 data-lang-content="zh">隐私政策</h1>
+        <h1 data-lang-content="zh-TW" style="display:none;">隱私政策</h1>
+        <h1 data-lang-content="en" style="display:none;">Privacy Policy</h1>
+        <h1 data-lang-content="ja" style="display:none;">プライバシーポリシー</h1>
+        <h1 data-lang-content="ko" style="display:none;">개인정보 처리방침</h1>
+        <h1 data-lang-content="ar" style="display:none;">سياسة الخصوصية</h1>
+        <h1 data-lang-content="fr" style="display:none;">Politique de confidentialité</h1>
+        <h1 data-lang-content="de" style="display:none;">Datenschutzrichtlinie</h1>
+        <h1 data-lang-content="ru" style="display:none;">Политика конфиденциальности</h1>
+        <h1 data-lang-content="es" style="display:none;">Política de privacidad</h1>
+        <h1 data-lang-content="it" style="display:none;">Informativa sulla privacy</h1>
 
-    <h2>2. 信息的使用</h2>
-    <p>所有权限仅用于实现本地功能，您的数据仅保留在您的设备上，不会上传至任何服务器或第三方平台。</p>
+        <p data-lang-content="zh">欢迎使用 TrueLive（以下简称"本应用"）。我们非常重视您的隐私和个人信息保护。本政策旨在向您说明我们如何收集、使用和保护您的信息。</p>
+        <p data-lang-content="zh-TW" style="display:none;">歡迎使用 TrueLive（以下簡稱"本應用"）。我們非常重視您的隱私和個人信息保護。本政策旨在向您說明我們如何收集、使用和保護您的信息。</p>
+        <p data-lang-content="en" style="display:none;">Welcome to TrueLive (hereinafter referred to as "the App"). We take your privacy seriously. This policy explains how we collect, use, and protect your information.</p>
+        <p data-lang-content="ja" style="display:none;">TrueLive（以下「本アプリ」）をご利用いただきありがとうございます。プライバシー保護を重視し、情報の収集・利用・保護について説明します。</p>
+        <p data-lang-content="ko" style="display:none;">TrueLive(이하 "본 앱")을 이용해 주셔서 감사합니다. 개인정보 보호를 매우 중요하게 생각하며, 정보 수집·이용·보호에 대해 안내합니다.</p>
+        <p data-lang-content="ar" style="display:none;">مرحبًا بك في TrueLive (المشار إليه فيما يلي بـ "التطبيق"). نحن نولي خصوصيتك أهمية كبيرة. توضح هذه السياسة كيفية جمع واستخدام وحماية معلوماتك.</p>
+        <p data-lang-content="fr" style="display:none;">Bienvenue sur TrueLive (ci-après dénommée "l'application"). Nous prenons votre vie privée au sérieux. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.</p>
+        <p data-lang-content="de" style="display:none;">Willkommen bei TrueLive (im Folgenden "die App" genannt). Wir nehmen Ihre Privatsphäre ernst. Diese Richtlinie erklärt, wie wir Ihre Informationen sammeln, verwenden und schützen.</p>
+        <p data-lang-content="ru" style="display:none;">Добро пожаловать в TrueLive (далее именуемое "Приложение"). Мы серьезно относимся к вашей конфиденциальности. В этой политике объясняется, как мы собираем, используем и защищаем вашу информацию.</p>
+        <p data-lang-content="es" style="display:none;">Bienvenido a TrueLive (en adelante, "la aplicación"). Nos tomamos en serio su privacidad. Esta política explica cómo recopilamos, utilizamos y protegemos su información.</p>
+        <p data-lang-content="it" style="display:none;">Benvenuto su TrueLive (di seguito denominata "l'app"). Prendiamo sul serio la tua privacy. Questa politica spiega come raccogliamo, utilizziamo e proteggiamo le tue informazioni.</p>
 
-    <h2>3. 第三方服务</h2>
-    <p>本应用不接入任何广告 SDK 或第三方统计服务。</p>
+        <h2 data-lang-content="zh">1. 我们收集的信息</h2>
+        <h2 data-lang-content="zh-TW" style="display:none;">1. 我們收集的信息</h2>
+        <h2 data-lang-content="en" style="display:none;">1. Information We Collect</h2>
+        <h2 data-lang-content="ja" style="display:none;">1. 収集する情報</h2>
+        <h2 data-lang-content="ko" style="display:none;">1. 수집하는 정보</h2>
+        <h2 data-lang-content="ar" style="display:none;">1. المعلومات التي نجمعها</h2>
+        <h2 data-lang-content="fr" style="display:none;">1. Informations que nous collectons</h2>
+        <h2 data-lang-content="de" style="display:none;">1. Informationen, die wir sammeln</h2>
+        <h2 data-lang-content="ru" style="display:none;">1. Информация, которую мы собираем</h2>
+        <h2 data-lang-content="es" style="display:none;">1. Información que recopilamos</h2>
+        <h2 data-lang-content="it" style="display:none;">1. Informazioni che raccogliamo</h2>
 
-    <h2>4. 权限管理</h2>
-    <p>您可在设备的“设置”-“TrueLive”中随时修改权限设置。</p>
+        <p data-lang-content="zh">在您使用本应用的过程中，我们可能会请求以下权限：</p>
+        <p data-lang-content="zh-TW" style="display:none;">在您使用本應用的過程中，我們可能會請求以下權限：</p>
+        <p data-lang-content="en" style="display:none;">During your use of the App, we may request the following permissions:</p>
+        <p data-lang-content="ja" style="display:none;">本アプリ使用時に、以下の権限をリクエストする場合があります：</p>
+        <p data-lang-content="ko" style="display:none;">앱 사용 중 다음 권한을 요청할 수 있습니다:</p>
+        <p data-lang-content="ar" style="display:none;">أثناء استخدامك للتطبيق، قد نطلب الأذونات التالية:</p>
+        <p data-lang-content="fr" style="display:none;">Lors de votre utilisation de l'application, nous pouvons demander les autorisations suivantes :</p>
+        <p data-lang-content="de" style="display:none;">Während Ihrer Nutzung der App können wir die folgenden Berechtigungen anfordern:</p>
+        <p data-lang-content="ru" style="display:none;">Во время использования приложения мы можем запросить следующие разрешения:</p>
+        <p data-lang-content="es" style="display:none;">Durante su uso de la aplicación, podemos solicitar los siguientes permisos:</p>
+        <p data-lang-content="it" style="display:none;">Durante l'utilizzo dell'app, potremmo richiedere le seguenti autorizzazioni:</p>
 
-    <h2>5. 隐私政策的变更</h2>
-    <p>我们可能会不时更新本政策。如有重大变更，我们会在应用内通知。</p>
+        <ul data-lang-content="zh">
+            <li>📷 相机权限：用于拍摄 Live Photo。</li>
+            <li>🖼️ 相册权限：用于保存您拍摄的照片到相册。</li>
+            <li>🎙️ 麦克风权限（可选）：用于为 Live Photo 添加音频。</li>
+        </ul>
+        <ul data-lang-content="zh-TW" style="display:none;">
+            <li>📷 相機權限：用於拍攝 Live Photo。</li>
+            <li>🖼️ 相冊權限：用於保存您拍攝的照片到相冊。</li>
+            <li>🎙️ 麥克風權限（可選）：用於為 Live Photo 添加音頻。</li>
+        </ul>
+        <ul data-lang-content="en" style="display:none;">
+            <li>📷 Camera permission: used to capture Live Photos.</li>
+            <li>🖼️ Photo library permission: used to save your photos.</li>
+            <li>🎙️ Microphone permission (optional): used to add audio to Live Photos.</li>
+        </ul>
+        <ul data-lang-content="ja" style="display:none;">
+            <li>📷 カメラ権限：Live Photo撮影に使用。</li>
+            <li>🖼️ 写真ライブラリ権限：撮影した写真の保存に使用。</li>
+            <li>🎙️ マイク権限（任意）：Live Photoに音声を追加するために使用。</li>
+        </ul>
+        <ul data-lang-content="ko" style="display:none;">
+            <li>📷 카메라 권한: Live Photo 촬영에 사용.</li>
+            <li>🖼️ 사진 보관함 권한: 촬영한 사진 저장에 사용.</li>
+            <li>🎙️ 마이크 권한(선택): Live Photo에 오디오 추가에 사용.</li>
+        </ul>
+        <ul data-lang-content="ar" style="display:none;">
+            <li>📷 إذن الكاميرا: يُستخدم لالتقاط صور Live.</li>
+            <li>🖼️ إذن مكتبة الصور: يُستخدم لحفظ الصور التي تلتقطها.</li>
+            <li>🎙️ إذن الميكروفون (اختياري): يُستخدم لإضافة صوت إلى صور Live.</li>
+        </ul>
+        <ul data-lang-content="fr" style="display:none;">
+            <li>📷 Autorisation de l'appareil photo : utilisée pour capturer des Live Photos.</li>
+            <li>🖼️ Autorisation de la bibliothèque de photos : utilisée pour enregistrer vos photos.</li>
+            <li>🎙️ Autorisation du microphone (optionnelle) : utilisée pour ajouter de l'audio aux Live Photos.</li>
+        </ul>
+        <ul data-lang-content="de" style="display:none;">
+            <li>📷 Kameraberechtigung: Wird verwendet, um Live Photos aufzunehmen.</li>
+            <li>🖼️ Foto-Bibliotheksberechtigung: Wird verwendet, um Ihre Fotos zu speichern.</li>
+            <li>🎙️ Mikrofonberechtigung (optional): Wird verwendet, um Live Photos Audio hinzuzufügen.</li>
+        </ul>
+        <ul data-lang-content="ru" style="display:none;">
+            <li>📷 Разрешение на использование камеры: используется для съемки Live Photos.</li>
+            <li>🖼️ Разрешение на доступ к фотогалерее: используется для сохранения ваших фотографий.</li>
+            <li>🎙️ Разрешение на использование микрофона (опционально): используется для добавления аудио к Live Photos.</li>
+        </ul>
+        <ul data-lang-content="es" style="display:none;">
+            <li>📷 Permiso de cámara: se utiliza para capturar Live Photos.</li>
+            <li>🖼️ Permiso de biblioteca de fotos: se utiliza para guardar sus fotos.</li>
+            <li>🎙️ Permiso de micrófono (opcional): se utiliza para agregar audio a Live Photos.</li>
+        </ul>
+        <ul data-lang-content="it" style="display:none;">
+            <li>📷 Autorizzazione della fotocamera: utilizzata per scattare Live Photo.</li>
+            <li>🖼️ Autorizzazione della libreria fotografica: utilizzata per salvare le tue foto.</li>
+            <li>🎙️ Autorizzazione del microfono (opzionale): utilizzata per aggiungere audio alle Live Photo.</li>
+        </ul>
 
-    <h2>6. 联系我们</h2>
-    <p>如您对隐私政策有任何疑问，请通过以下方式联系我们：</p>
-    <p>📧 邮箱：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="zh">我们不会收集或存储您的照片、音频或任何个人媒体内容。</p>
+        <p data-lang-content="zh-TW" style="display:none;">我們不會收集或存儲您的照片、音頻或任何個人媒體內容。</p>
+        <p data-lang-content="en" style="display:none;">We do not collect or store your photos, audio, or any personal media content.</p>
+        <p data-lang-content="ja" style="display:none;">写真、音声、その他の個人メディアは収集・保存しません。</p>
+        <p data-lang-content="ko" style="display:none;">사진, 오디오 또는 기타 개인 미디어를 수집하거나 저장하지 않습니다.</p>
+        <p data-lang-content="ar" style="display:none;">نحن لا نجمع أو نخزن صورك أو صوتك أو أي محتوى وسائط شخصية أخرى.</p>
+        <p data-lang-content="fr" style="display:none;">Nous ne collectons ni ne stockons vos photos, votre audio ou tout autre contenu média personnel.</p>
+        <p data-lang-content="de" style="display:none;">Wir sammeln oder speichern keine Fotos, Audio oder andere persönliche Medieninhalte.</p>
+        <p data-lang-content="ru" style="display:none;">Мы не собираем и не храним ваши фотографии, аудио или любой другой личный медиаконтент.</p>
+        <p data-lang-content="es" style="display:none;">No recopilamos ni almacenamos sus fotos, audio o cualquier otro contenido multimedia personal.</p>
+        <p data-lang-content="it" style="display:none;">Non raccogliamo né archiviamo le tue foto, audio o qualsiasi altro contenuto multimediale personale.</p>
 
-    <p>更新日期：2025 年 7 月 3 日</p>
-  </div>
+        <h2 data-lang-content="zh">2. 信息的使用</h2>
+        <h2 data-lang-content="zh-TW" style="display:none;">2. 信息的使用</h2>
+        <h2 data-lang-content="en" style="display:none;">2. Use of Information</h2>
+        <h2 data-lang-content="ja" style="display:none;">2. 情報の利用</h2>
+        <h2 data-lang-content="ko" style="display:none;">2. 정보 사용</h2>
+        <h2 data-lang-content="ar" style="display:none;">2. استخدام المعلومات</h2>
+        <h2 data-lang-content="fr" style="display:none;">2. Utilisation des informations</h2>
+        <h2 data-lang-content="de" style="display:none;">2. Verwendung der Informationen</h2>
+        <h2 data-lang-content="ru" style="display:none;">2. Использование информации</h2>
+        <h2 data-lang-content="es" style="display:none;">2. Uso de la información</h2>
+        <h2 data-lang-content="it" style="display:none;">2. Utilizzo delle informazioni</h2>
+
+        <p data-lang-content="zh">所有权限仅用于实现本地功能，您的数据仅保留在您的设备上，不会上传至任何服务器或第三方平台。</p>
+        <p data-lang-content="zh-TW" style="display:none;">所有權限僅用於實現本地功能，您的數據僅保留在您的設備上，不會上傳至任何服務器或第三方平台。</p>
+        <p data-lang-content="en" style="display:none;">All permissions are only used for local features; your data stays on your device and is not uploaded to any server or third party.</p>
+        <p data-lang-content="ja" style="display:none;">すべての権限はローカル機能のためのみ使用され、データは端末内に保持され、サーバーや第三者へは送信されません。</p>
+        <p data-lang-content="ko" style="display:none;">모든 권한은 로컬 기능에만 사용되며, 데이터는 기기에만 저장되고 서버나 제3자에게 업로드되지 않습니다.</p>
+        <p data-lang-content="ar" style="display:none;">جميع الأذونات تُستخدم فقط للميزات المحلية؛ تبقى بياناتك على جهازك ولا تُرفع إلى أي خادم أو طرف ثالث.</p>
+        <p data-lang-content="fr" style="display:none;">Toutes les autorisations sont uniquement utilisées pour des fonctionnalités locales ; vos données restent sur votre appareil et ne sont pas téléchargées vers un serveur ou un tiers.</p>
+        <p data-lang-content="de" style="display:none;">Alle Berechtigungen werden nur für lokale Funktionen verwendet; Ihre Daten verbleiben auf Ihrem Gerät und werden nicht an einen Server oder Dritte hochgeladen.</p>
+        <p data-lang-content="ru" style="display:none;">Все разрешения используются только для локальных функций; ваши данные остаются на вашем устройстве и не загружаются на какие-либо серверы или третьим сторонам.</p>
+        <p data-lang-content="es" style="display:none;">Todos los permisos se utilizan únicamente para funciones locales; sus datos permanecen en su dispositivo y no se cargan en ningún servidor o terceros.</p>
+        <p data-lang-content="it" style="display:none;">Tutte le autorizzazioni sono utilizzate solo per funzionalità locali; i tuoi dati rimangono sul tuo dispositivo e non vengono caricati su server o terze parti.</p>
+
+        <h2 data-lang-content="zh">3. 第三方服务</h2>
+        <h2 data-lang-content="zh-TW" style="display:none;">3. 第三方服務</h2>
+        <h2 data-lang-content="en" style="display:none;">3. Third-Party Services</h2>
+        <h2 data-lang-content="ja" style="display:none;">3. サードパーティサービス</h2>
+        <h2 data-lang-content="ko" style="display:none;">3. 제3자 서비스</h2>
+        <h2 data-lang-content="ar" style="display:none;">3. خدمات الطرف الثالث</h2>
+        <h2 data-lang-content="fr" style="display:none;">3. Services tiers</h2>
+        <h2 data-lang-content="de" style="display:none;">3. Drittanbieterdienste</h2>
+        <h2 data-lang-content="ru" style="display:none;">3. Сторонние сервисы</h2>
+        <h2 data-lang-content="es" style="display:none;">3. Servicios de terceros</h2>
+        <h2 data-lang-content="it" style="display:none;">3. Servizi di terze parti</h2>
+
+        <p data-lang-content="zh">本应用不接入任何广告 SDK 或第三方统计服务。</p>
+        <p data-lang-content="zh-TW" style="display:none;">本應用不接入任何廣告 SDK 或第三方統計服務。</p>
+        <p data-lang-content="en" style="display:none;">This App does not integrate any ad SDKs or third-party analytics services.</p>
+        <p data-lang-content="ja" style="display:none;">本アプリは広告SDKやサードパーティの解析サービスを一切導入していません。</p>
+        <p data-lang-content="ko" style="display:none;">이 앱은 광고 SDK나 제3자 분석 서비스를 전혀 포함하지 않습니다.</p>
+        <p data-lang-content="ar" style="display:none;">لا يدمج هذا التطبيق أي SDK إعلانات أو خدمات تحليلات طرف ثالث.</p>
+        <p data-lang-content="fr" style="display:none;">Cette application n'intègre aucun SDK publicitaire ou service d'analyse tiers.</p>
+        <p data-lang-content="de" style="display:none;">Diese App integriert keine Werbe-SDKs oder Analysedienste von Drittanbietern.</p>
+        <p data-lang-content="ru" style="display:none;">Это приложение не интегрирует какие-либо рекламные SDK или сторонние аналитические сервисы.</p>
+        <p data-lang-content="es" style="display:none;">Esta aplicación no integra ningún SDK de publicidad ni servicios de análisis de terceros.</p>
+        <p data-lang-content="it" style="display:none;">Questa app non integra alcun SDK pubblicitario o servizi di analisi di terze parti.</p>
+
+        <h2 data-lang-content="zh">4. 权限管理</h2>
+        <h2 data-lang-content="zh-TW" style="display:none;">4. 權限管理</h2>
+        <h2 data-lang-content="en" style="display:none;">4. Permission Management</h2>
+        <h2 data-lang-content="ja" style="display:none;">4. 権限管理</h2>
+        <h2 data-lang-content="ko" style="display:none;">4. 권한 관리</h2>
+        <h2 data-lang-content="ar" style="display:none;">4. إدارة الأذونات</h2>
+        <h2 data-lang-content="fr" style="display:none;">4. Gestion des autorisations</h2>
+        <h2 data-lang-content="de" style="display:none;">4. Berechtigungsverwaltung</h2>
+        <h2 data-lang-content="ru" style="display:none;">4. Управление разрешениями</h2>
+        <h2 data-lang-content="es" style="display:none;">4. Gestión de permisos</h2>
+        <h2 data-lang-content="it" style="display:none;">4. Gestione delle autorizzazioni</h2>
+
+        <p data-lang-content="zh">您可在设备的"设置"-"TrueLive"中随时修改权限设置。</p>
+        <p data-lang-content="zh-TW" style="display:none;">您可在設備的"設定"-"TrueLive"中隨時修改權限設置。</p>
+        <p data-lang-content="en" style="display:none;">You can modify permission settings anytime in your device's Settings under "TrueLive."</p>
+        <p data-lang-content="ja" style="display:none;">デバイスの「設定」-「TrueLive」からいつでも権限設定を変更できます。</p>
+        <p data-lang-content="ko" style="display:none;">기기 설정의 "TrueLive"에서 언제든 권한 설정을 변경할 수 있습니다.</p>
+        <p data-lang-content="ar" style="display:none;">يمكنك تعديل إعدادات الأذونات في أي وقت من خلال إعدادات جهازك ضمن "TrueLive".</p>
+        <p data-lang-content="fr" style="display:none;">Vous pouvez modifier les paramètres d'autorisation à tout moment dans les Paramètres de votre appareil sous "TrueLive".</p>
+        <p data-lang-content="de" style="display:none;">Sie können die Berechtigungseinstellungen jederzeit in den Einstellungen Ihres Geräts unter "TrueLive" ändern.</p>
+        <p data-lang-content="ru" style="display:none;">Вы можете изменить настройки разрешений в любое время в Настройках вашего устройства в разделе "TrueLive".</p>
+        <p data-lang-content="es" style="display:none;">Puede modificar la configuración de permisos en cualquier momento en la configuración de su dispositivo en "TrueLive".</p>
+        <p data-lang-content="it" style="display:none;">Puoi modificare le impostazioni delle autorizzazioni in qualsiasi momento nelle Impostazioni del tuo dispositivo sotto "TrueLive".</p>
+
+        <h2 data-lang-content="zh">5. 隐私政策的变更</h2>
+        <h2 data-lang-content="zh-TW" style="display:none;">5. 隱私政策的變更</h2>
+        <h2 data-lang-content="en" style="display:none;">5. Changes to This Policy</h2>
+        <h2 data-lang-content="ja" style="display:none;">5. プライバシーポリシーの変更</h2>
+        <h2 data-lang-content="ko" style="display:none;">5. 개인정보 처리방침 변경</h2>
+        <h2 data-lang-content="ar" style="display:none;">5. تغييرات سياسة الخصوصية</h2>
+        <h2 data-lang-content="fr" style="display:none;">5. Modifications de cette politique</h2>
+        <h2 data-lang-content="de" style="display:none;">5. Änderungen dieser Richtlinie</h2>
+        <h2 data-lang-content="ru" style="display:none;">5. Изменения в политике</h2>
+        <h2 data-lang-content="es" style="display:none;">5. Cambios en esta política</h2>
+        <h2 data-lang-content="it" style="display:none;">5. Modifiche a questa politica</h2>
+
+        <p data-lang-content="zh">我们可能会不时更新本政策。如有重大变更，我们会在应用内通知。</p>
+        <p data-lang-content="zh-TW" style="display:none;">我們可能會不時更新本政策。如有重大變更，我們會在應用內通知。</p>
+        <p data-lang-content="en" style="display:none;">We may update this policy occasionally. For major changes, we will notify you within the app.</p>
+        <p data-lang-content="ja" style="display:none;">本ポリシーは随時更新されることがあります。重大な変更はアプリ内で通知します。</p>
+        <p data-lang-content="ko" style="display:none;">이 정책은 가끔 업데이트될 수 있으며, 주요 변경사항은 앱 내에서 알립니다.</p>
+        <p data-lang-content="ar" style="display:none;">قد نقوم بتحديث هذه السياسة من وقت لآخر. سنبلغك بالتغييرات الجوهرية داخل التطبيق.</p>
+        <p data-lang-content="fr" style="display:none;">Nous pouvons mettre à jour cette politique de temps à autre. Pour les changements majeurs, nous vous en informerons dans l'application.</p>
+        <p data-lang-content="de" style="display:none;">Wir können diese Richtlinie gelegentlich aktualisieren. Bei größeren Änderungen werden wir Sie in der App benachrichtigen.</p>
+        <p data-lang-content="ru" style="display:none;">Мы можем время от времени обновлять эту политику. О существенных изменениях мы сообщим вам в приложении.</p>
+        <p data-lang-content="es" style="display:none;">Podemos actualizar esta política ocasionalmente. Para cambios importantes, le notificaremos dentro de la aplicación.</p>
+        <p data-lang-content="it" style="display:none;">Potremmo aggiornare questa politica di tanto in tanto. Per modifiche importanti, ti informeremo all'interno dell'app.</p>
+
+        <h2 data-lang-content="zh">6. 联系我们</h2>
+        <h2 data-lang-content="zh-TW" style="display:none;">6. 聯繫我們</h2>
+        <h2 data-lang-content="en" style="display:none;">6. Contact Us</h2>
+        <h2 data-lang-content="ja" style="display:none;">6. お問い合わせ</h2>
+        <h2 data-lang-content="ko" style="display:none;">6. 문의하기</h2>
+        <h2 data-lang-content="ar" style="display:none;">6. اتصل بنا</h2>
+        <h2 data-lang-content="fr" style="display:none;">6. Contactez-nous</h2>
+        <h2 data-lang-content="de" style="display:none;">6. Kontaktieren Sie uns</h2>
+        <h2 data-lang-content="ru" style="display:none;">6. Свяжитесь с нами</h2>
+        <h2 data-lang-content="es" style="display:none;">6. Contáctenos</h2>
+        <h2 data-lang-content="it" style="display:none;">6. Contattaci</h2>
+
+        <p data-lang-content="zh">如您对隐私政策有任何疑问，请通过以下方式联系我们：</p>
+        <p data-lang-content="zh-TW" style="display:none;">如您對隱私政策有任何疑問，請通過以下方式聯繫我們：</p>
+        <p data-lang-content="en" style="display:none;">If you have any questions about this policy, please contact us at:</p>
+        <p data-lang-content="ja" style="display:none;">プライバシーポリシーに関するご質問は、以下までお問い合わせください：</p>
+        <p data-lang-content="ko" style="display:none;">개인정보 처리방침에 대해 궁금한 점이 있으면 아래로 연락해 주세요:</p>
+        <p data-lang-content="ar" style="display:none;">إذا كان لديك أي أسئلة حول هذه السياسة، يرجى الاتصال بنا عبر:</p>
+        <p data-lang-content="fr" style="display:none;">Si vous avez des questions concernant cette politique, veuillez nous contacter à :</p>
+        <p data-lang-content="de" style="display:none;">Wenn Sie Fragen zu dieser Richtlinie haben, kontaktieren Sie uns bitte unter:</p>
+        <p data-lang-content="ru" style="display:none;">Если у вас есть какие-либо вопросы по поводу этой политики, пожалуйста, свяжитесь с нами по адресу:</p>
+        <p data-lang-content="es" style="display:none;">Si tiene alguna pregunta sobre esta política, contáctenos en:</p>
+        <p data-lang-content="it" style="display:none;">Se hai domande su questa politica, contattaci a:</p>
+
+        <p data-lang-content="zh">📧 邮箱：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="zh-TW" style="display:none;">📧 郵箱：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="en" style="display:none;">📧 Email: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="ja" style="display:none;">📧 メール：<a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="ko" style="display:none;">📧 이메일: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="ar" style="display:none;">📧 البريد الإلكتروني: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="fr" style="display:none;">📧 E-mail : <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="de" style="display:none;">📧 E-Mail: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="ru" style="display:none;">📧 Эл. почта: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="es" style="display:none;">📧 Correo electrónico: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+        <p data-lang-content="it" style="display:none;">📧 Email: <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+
+        <p data-lang-content="zh">更新日期：2025 年 8 月 25 日</p>
+        <p data-lang-content="zh-TW" style="display:none;">更新日期：2025 年 8 月 25 日</p>
+        <p data-lang-content="en" style="display:none;">Last updated: August 25, 2025</p>
+        <p data-lang-content="ja" style="display:none;">最終更新日：2025年8月25日</p>
+        <p data-lang-content="ko" style="display:none;">최종 업데이트: 2025년 8월 25일</p>
+        <p data-lang-content="ar" style="display:none;">تاريخ آخر تحديث: 25 أغسطس 2025</p>
+        <p data-lang-content="fr" style="display:none;">Dernière mise à jour : 25 août 2025</p>
+        <p data-lang-content="de" style="display:none;">Zuletzt aktualisiert: 25. August 2025</p>
+        <p data-lang-content="ru" style="display:none;">Последнее обновление: 25 августа 2025 г.</p>
+        <p data-lang-content="es" style="display:none;">Última actualización: 25 de agosto de 2025</p>
+        <p data-lang-content="it" style="display:none;">Ultimo aggiornamento: 25 agosto 2025</p>
+    </div>
+
+    <script>
+        const langBtn = document.getElementById('langBtn');
+        const langList = document.getElementById('langList');
+        const langButtons = langList.querySelectorAll('button');
+        const contents = document.querySelectorAll('[data-lang-content]');
+
+        langBtn.addEventListener('click', () => {
+            langList.classList.toggle('active');
+        });
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const selectedLang = btn.getAttribute('data-lang');
+                
+                // 切换显示对应语言内容
+                contents.forEach(el => {
+                    el.style.display = el.getAttribute('data-lang-content') === selectedLang ? '' : 'none';
+                });
+                
+                // 关闭语言列表
+                langList.classList.remove('active');
+                
+                // 更新按钮文字
+                langBtn.textContent = btn.textContent;
+                
+                // 设置页面 lang 属性
+                if (selectedLang === 'zh') {
+                    document.documentElement.lang = 'zh-CN';
+                } else if (selectedLang === 'zh-TW') {
+                    document.documentElement.lang = 'zh-TW';
+                } else {
+                    document.documentElement.lang = selectedLang;
+                }
+            });
+        });
+
+        // 页面加载默认显示中文
+        window.addEventListener('load', () => {
+            langBtn.textContent = '中文 (简体)';
+        });
+    </script>
 </body>
 </html>
