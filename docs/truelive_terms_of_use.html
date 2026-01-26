@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>用户协议 - TrueLive</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #FAFAFA;
+      color: #1C1C1E;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 680px;
+      margin: 60px auto;
+      padding: 24px;
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    h2 {
+      font-size: 17px;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: #000;
+    }
+    p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .footer {
+      margin-top: 32px;
+      font-size: 13px;
+      color: #888;
+    }
+    .lang-selector {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+    }
+    .lang-button {
+      background-color: #007AFF;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-list {
+      display: none;
+      position: absolute;
+      top: 36px;
+      right: 0;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      min-width: 120px;
+    }
+    .lang-list.active { display: block; }
+    .lang-list button {
+      width: 100%;
+      padding: 8px 12px;
+      border: none;
+      background: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-list button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-selector">
+      <button id="langBtn" class="lang-button">中文</button>
+      <div id="langList" class="lang-list">
+        <button data-lang="zh">简体中文</button>
+        <button data-lang="zh-Hant">繁體中文</button>
+        <button data-lang="en">English</button>
+      </div>
+    </div>
+
+    <!-- 标题 -->
+    <h1 data-lang-content="zh">TrueLive 用户协议</h1>
+    <h1 data-lang-content="zh-Hant" style="display:none;">TrueLive 使用者協議</h1>
+    <h1 data-lang-content="en" style="display:none;">TrueLive User Agreement</h1>
+
+    <!-- 一、协议说明 -->
+    <h2 data-lang-content="zh">一、协议说明</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">一、協議說明</h2>
+    <h2 data-lang-content="en" style="display:none;">1. Agreement Overview</h2>
+
+    <p data-lang-content="zh">
+      欢迎您使用 TrueLive。您在下载、安装或使用本应用时，即表示您已阅读并同意本用户协议的全部内容。
+      如您不同意本协议的任何条款，请停止使用本应用。
+    </p>
+    <p data-lang-content="zh-Hant" style="display:none;">
+      歡迎您使用 TrueLive。當您下載、安裝或使用本應用，即表示您已閱讀並同意本使用者協議的全部內容。
+      如您不同意本協議的任何條款，請停止使用本應用。
+    </p>
+    <p data-lang-content="en" style="display:none;">
+      Welcome to TrueLive. By downloading, installing, or using this app, you agree to be bound by this User Agreement.
+      If you do not agree to any part of this agreement, please discontinue use of the app.
+    </p>
+
+    <!-- 二、应用功能 -->
+    <h2 data-lang-content="zh">二、应用功能说明</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">二、應用功能說明</h2>
+    <h2 data-lang-content="en" style="display:none;">2. App Features</h2>
+
+    <p data-lang-content="zh">
+      TrueLive 是一款照片拍摄与处理应用，主要用于拍照并对照片进行处理，
+      包括去除系统锐化、减少色彩偏移等效果。
+      实际功能以应用内提供为准。
+    </p>
+    <p data-lang-content="zh-Hant" style="display:none;">
+      TrueLive 是一款照片拍攝與處理應用，主要用於拍照並對照片進行處理，
+      包括去除系統銳化、減少色彩偏移等效果。
+      實際功能以應用內提供為準。
+    </p>
+    <p data-lang-content="en" style="display:none;">
+      TrueLive is a photo capture and processing app designed to take photos and reduce system sharpening
+      and color distortion. Actual features may vary based on the app version.
+    </p>
+
+    <!-- 三、付费服务 -->
+    <h2 data-lang-content="zh">三、付费服务说明</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">三、付費服務說明</h2>
+    <h2 data-lang-content="en" style="display:none;">3. Paid Services</h2>
+
+    <p data-lang-content="zh">
+      TrueLive 提供包月订阅及永久会员服务。付费后可无限制使用拍摄功能并关闭照片水印。
+      具体权益及价格以应用内展示为准。
+    </p>
+    <p data-lang-content="zh-Hant" style="display:none;">
+      TrueLive 提供包月訂閱及永久會員服務。付費後可無限制使用拍攝功能並關閉照片浮水印。
+      具體權益及價格以應用內顯示為準。
+    </p>
+    <p data-lang-content="en" style="display:none;">
+      TrueLive offers monthly subscriptions and a lifetime membership, allowing unlimited use
+      and removal of photo watermarks. Details are shown within the app.
+    </p>
+
+    <!-- 四、自动续订 -->
+    <h2 data-lang-content="zh">四、自动续订与取消订阅</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">四、自動續訂與取消訂閱</h2>
+    <h2 data-lang-content="en" style="display:none;">4. Auto-Renewal & Cancellation</h2>
+
+    <p data-lang-content="zh">
+      包月订阅为自动续订服务，可在当前订阅周期结束前 24 小时内取消。
+      永久会员为一次性购买，不涉及自动续订。
+    </p>
+    <p data-lang-content="zh-Hant" style="display:none;">
+      包月訂閱為自動續訂服務，可於當前訂閱週期結束前 24 小時內取消。
+      永久會員為一次性購買，不涉及自動續訂。
+    </p>
+    <p data-lang-content="en" style="display:none;">
+      Monthly subscriptions automatically renew unless canceled at least 24 hours before the end
+      of the current period. Lifetime membership is a one-time purchase.
+    </p>
+
+    <!-- 五、使用规范 -->
+    <h2 data-lang-content="zh">五、使用规范</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">五、使用規範</h2>
+    <h2 data-lang-content="en" style="display:none;">5. Acceptable Use</h2>
+
+    <p data-lang-content="zh">
+      您不得利用本应用从事违法活动，不得侵犯他人合法权益，
+      不得对应用进行破解、反编译或其他破坏行为。
+    </p>
+    <p data-lang-content="zh-Hant" style="display:none;">
+      您不得利用本應用從事違法活動，不得侵犯他人合法權益，
+      不得對應用進行破解、反編譯或其他破壞行為。
+    </p>
+    <p data-lang-content="en" style="display:none;">
+      You may not use the app for illegal purposes, infringe on others’ rights,
+      or attempt to reverse engineer or disrupt the app.
+    </p>
+
+    <!-- 六、免责声明 -->
+    <h2 data-lang-content="zh">六、免责声明</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">六、免責聲明</h2>
+    <h2 data-lang-content="en" style="display:none;">6. Disclaimer</h2>
+
+    <p data-lang-content="zh">
+      本应用不对因设备、系统、网络环境等原因导致的使用异常承担责任，
+      照片处理效果可能因设备不同而存在差异。
+    </p>
+    <p data-lang-content="zh-Hant" style="display:none;">
+      本應用不對因設備、系統、網路環境等原因導致的使用異常承擔責任，
+      照片處理效果可能因設備不同而有所差異。
+    </p>
+    <p data-lang-content="en" style="display:none;">
+      TrueLive is not responsible for issues caused by device limitations,
+      system differences, or network conditions. Results may vary.
+    </p>
+
+    <!-- 七、协议变更 -->
+    <h2 data-lang-content="zh">七、协议变更</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">七、協議變更</h2>
+    <h2 data-lang-content="en" style="display:none;">7. Changes to This Agreement</h2>
+
+    <p data-lang-content="zh">
+      本应用有权根据需要对本协议进行修改。修改后的协议一经发布即生效。
+    </p>
+    <p data-lang-content="zh-Hant" style="display:none;">
+      本應用有權根據需要對本協議進行修改。修改後的協議一經發布即生效。
+    </p>
+    <p data-lang-content="en" style="display:none;">
+      We may update this agreement from time to time. Continued use indicates acceptance of changes.
+    </p>
+
+    <!-- 八、联系方式 -->
+    <h2 data-lang-content="zh">八、联系方式</h2>
+    <h2 data-lang-content="zh-Hant" style="display:none;">八、聯絡方式</h2>
+    <h2 data-lang-content="en" style="display:none;">8. Contact Us</h2>
+
+    <p data-lang-content="zh">如有疑问，请联系我们：📧 gigglebro@163.com</p>
+    <p data-lang-content="zh-Hant" style="display:none;">如有疑問，請聯絡我們：📧 gigglebro@163.com</p>
+    <p data-lang-content="en" style="display:none;">For questions, contact us at 📧 gigglebro@163.com</p>
+
+    <div class="footer">© 2025 TrueLive. All rights reserved.</div>
+  </div>
+
+  <script>
+    const langBtn = document.getElementById('langBtn');
+    const langList = document.getElementById('langList');
+    const langButtons = langList.querySelectorAll('button');
+    const contents = document.querySelectorAll('[data-lang-content]');
+
+    langBtn.addEventListener('click', () => {
+      langList.classList.toggle('active');
+    });
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        contents.forEach(el => {
+          el.style.display = el.dataset.langContent === lang ? '' : 'none';
+        });
+        langBtn.textContent = btn.textContent;
+        langList.classList.remove('active');
+        document.documentElement.lang = lang;
+      });
+    });
+  </script>
+</body>
+</html>
