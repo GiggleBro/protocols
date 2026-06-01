@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
@@ -6,57 +6,156 @@
   <title>支持与联系 — 印章模拟器</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#222; padding:28px; max-width:900px; margin:0 auto; }
-    header { border-bottom:1px solid #eee; margin-bottom:18px; padding-bottom:10px; }
+    header { border-bottom:1px solid #eee; margin-bottom:18px; padding-bottom:10px; position: relative; }
     h1 { margin:0 0 6px 0; font-size:24px; }
+    h2 { font-size:18px; margin-top:20px; }
+    h3 { font-size:16px; margin-top:16px; }
     p { margin:12px 0; }
     a.button { display:inline-block; padding:8px 14px; border-radius:8px; border:1px solid #ddd; text-decoration:none; color:#111; background:#fafafa; margin-top:8px; }
     .muted { color:#666; font-size:14px; }
     section { margin-top:14px; }
     footer { margin-top:24px; border-top:1px solid #eee; padding-top:12px; color:#666; font-size:13px; }
+    ul { margin:12px 0; padding-left:20px; }
+    li { margin:8px 0; }
+    
+    /* 语言选择器样式 */
+    .lang-selector { position: absolute; top: 0; right: 0; }
+    .lang-button {
+      background-color: #007AFF;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-list {
+      display: none;
+      position: absolute;
+      top: 36px;
+      right: 0;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      min-width: 120px;
+    }
+    .lang-list.active { display: block; }
+    .lang-list button {
+      width: 100%;
+      padding: 8px 12px;
+      border: none;
+      background: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-list button:hover { background-color: #f0f0f0; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>支持与联系</h1>
-    <div class="muted">印章模拟器</div>
-  </header>
+  <div class="container">
+    <header>
+      <div class="lang-selector">
+        <button id="langBtn" class="lang-button">中文</button>
+        <div id="langList" class="lang-list">
+          <button data-lang="zh">简体中文</button>
+          <button data-lang="en">English</button>
+        </div>
+      </div>
+      
+      <h1 data-lang-content="zh">支持与联系</h1>
+      <h1 data-lang-content="en" style="display:none;">Support & Contact</h1>
+      <div class="muted" data-lang-content="zh">印章模拟器</div>
+      <div class="muted" data-lang-content="en" style="display:none;">Seal Maker</div>
+    </header>
 
-  <section>
-    <h2>常见问题解答</h2>
-    
-    <h3>Q: 盖章后的文件保存在哪里？</h3>
-    <p>A: 盖章后的文件保存在应用内部文件列表中，您可以在首页的文件列表中查看和管理。</p>
-    
-    <h3>Q: 如何获取更多功能？</h3>
-    <p>A: 订阅印章会员即可解锁全部高级功能，包括自动覆盖保存、印章透明通道设置等。</p>
-    
-    <h3>Q: 印章可以导出吗？</h3>
-    <p>A: 是的，您可以在印章列表中选择印章并导出到相册。</p>
-    
-    <h3>Q: 如何取消订阅？</h3>
-    <p>A: 您可以在 iOS 系统设置 → Apple ID → 订阅中找到印章模拟器并取消订阅。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">常见问题解答</h2>
+      <h2 data-lang-content="en" style="display:none;">FAQ</h2>
+      
+      <h3 data-lang-content="zh">Q: 盖章后的文件保存在哪里？</h3>
+      <h3 data-lang-content="en" style="display:none;">Q: Where are stamped files saved?</h3>
+      <p data-lang-content="zh">A: 盖章后的文件保存在应用内部文件列表中，您可以在首页的文件列表中查看和管理。</p>
+      <p data-lang-content="en" style="display:none;">A: Stamped files are saved in the app's internal file list. You can view and manage them in the home page file list.</p>
+      
+      <h3 data-lang-content="zh">Q: 如何获取更多功能？</h3>
+      <h3 data-lang-content="en" style="display:none;">Q: How to get more features?</h3>
+      <p data-lang-content="zh">A: 订阅印章会员即可解锁全部高级功能，包括自动覆盖保存、印章透明通道设置等。</p>
+      <p data-lang-content="en" style="display:none;">A: Subscribe to Stamp Membership to unlock all premium features, including auto-overwrite save and stamp alpha channel settings.</p>
+      
+      <h3 data-lang-content="zh">Q: 印章可以导出吗？</h3>
+      <h3 data-lang-content="en" style="display:none;">Q: Can stamps be exported?</h3>
+      <p data-lang-content="zh">A: 是的，您可以在印章列表中选择印章并导出到相册。</p>
+      <p data-lang-content="en" style="display:none;">A: Yes, you can select stamps in the stamp list and export them to your photo album.</p>
+      
+      <h3 data-lang-content="zh">Q: 如何取消订阅？</h3>
+      <h3 data-lang-content="en" style="display:none;">Q: How to cancel subscription?</h3>
+      <p data-lang-content="zh">A: 您可以在 iOS 系统设置 → Apple ID → 订阅中找到印章模拟器并取消订阅。</p>
+      <p data-lang-content="en" style="display:none;">A: You can find Seal Maker in iOS Settings → Apple ID → Subscriptions and cancel the subscription.</p>
+    </section>
 
-  <section>
-    <h2>遇到问题？先试试这些步骤</h2>
-    <ul>
-      <li>确认应用已获得「文件」访问权限：iOS 设置 → 隐私与安全 → 文件与文件夹 → 找到 <strong>印章模拟器</strong> 并允许访问。</li>
-      <li>确认应用已获得「相册」访问权限：iOS 设置 → 隐私与安全 → 照片 → 找到 <strong>印章模拟器</strong> 并允许“读取与写入”。</li>
-      <li>尝试重启应用或设备后再次尝试。</li>
-      <li>确保您的设备已更新到最新版本的 iOS。</li>
-    </ul>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">遇到问题？先试试这些步骤</h2>
+      <h2 data-lang-content="en" style="display:none;">Having issues? Try these steps first</h2>
+      <ul>
+        <li data-lang-content="zh">确认应用已获得「文件」访问权限：iOS 设置 → 隐私与安全 → 文件与文件夹 → 找到 <strong>印章模拟器</strong> 并允许访问。</li>
+        <li data-lang-content="en" style="display:none;">Ensure the app has "Files" access: iOS Settings → Privacy & Security → Files and Folders → Find <strong>Seal Maker</strong> and allow access.</li>
+        <li data-lang-content="zh">确认应用已获得「相册」访问权限：iOS 设置 → 隐私与安全 → 照片 → 找到 <strong>印章模拟器</strong> 并允许“读取与写入”。</li>
+        <li data-lang-content="en" style="display:none;">Ensure the app has "Photos" access: iOS Settings → Privacy & Security → Photos → Find <strong>Seal Maker</strong> and allow "Read and Write".</li>
+        <li data-lang-content="zh">尝试重启应用或设备后再次尝试。</li>
+        <li data-lang-content="en" style="display:none;">Try restarting the app or device and try again.</li>
+        <li data-lang-content="zh">确保您的设备已更新到最新版本的 iOS。</li>
+        <li data-lang-content="en" style="display:none;">Ensure your device is updated to the latest iOS version.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>直接联系</h2>
-    <p>如果上述方法无法解决，欢迎通过邮箱与我们联系：</p>
-    <p><strong>邮箱：</strong> <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
-    <p>请在邮件中说明：设备型号、iOS 版本、应用版本号、问题描述和（如有）相关截图。我们会尽力在收到邮件后及时回复。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">直接联系</h2>
+      <h2 data-lang-content="en" style="display:none;">Contact Us Directly</h2>
+      <p data-lang-content="zh">如果上述方法无法解决，欢迎通过邮箱与我们联系：</p>
+      <p data-lang-content="en" style="display:none;">If the above steps don't resolve the issue, please contact us via email:</p>
+      <p><strong data-lang-content="zh">邮箱：</strong><strong data-lang-content="en" style="display:none;">Email:</strong> <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+      <p data-lang-content="zh">请在邮件中说明：设备型号、iOS 版本、应用版本号、问题描述和（如有）相关截图。我们会尽力在收到邮件后及时回复。</p>
+      <p data-lang-content="en" style="display:none;">Please include in your email: device model, iOS version, app version, problem description, and (if applicable) relevant screenshots. We will try to respond promptly upon receiving your email.</p>
+    </section>
 
-  <footer>
-    <div class="muted">感谢使用印章模拟器。</div>
-    <div class="muted">更新于：2026-05-22</div>
-  </footer>
+    <footer>
+      <div class="muted" data-lang-content="zh">感谢使用印章模拟器。</div>
+      <div class="muted" data-lang-content="en" style="display:none;">Thank you for using Seal Maker.</div>
+      <div class="muted" data-lang-content="zh">更新日期: 2026-06-01</div>
+      <div class="muted" data-lang-content="en" style="display:none;">Updated: June 1, 2026</div>
+    </footer>
+  </div>
+
+  <script>
+    const langBtn = document.getElementById('langBtn');
+    const langList = document.getElementById('langList');
+    const langButtons = langList.querySelectorAll('button');
+    const contents = document.querySelectorAll('[data-lang-content]');
+
+    langBtn.addEventListener('click', () => {
+      langList.classList.toggle('active');
+    });
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedLang = btn.getAttribute('data-lang');
+        contents.forEach(el => {
+          el.style.display =
+            el.getAttribute('data-lang-content') === selectedLang ? '' : 'none';
+        });
+        langList.classList.remove('active');
+        langBtn.textContent = btn.textContent;
+        document.documentElement.lang =
+          selectedLang === 'zh' ? 'zh-CN' : selectedLang;
+      });
+    });
+
+    window.addEventListener('load', () => {
+      langBtn.textContent = '简体中文';
+    });
+  </script>
 </body>
 </html>

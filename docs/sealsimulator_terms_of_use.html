@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
@@ -6,99 +6,218 @@
   <title>用户协议 — 印章模拟器</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.6; color:#222; padding:28px; max-width:900px; margin:0 auto; }
-    header { border-bottom:1px solid #eee; margin-bottom:20px; padding-bottom:12px; }
+    header { border-bottom:1px solid #eee; margin-bottom:20px; padding-bottom:12px; position: relative; }
     h1 { margin:0 0 6px 0; font-size:24px; }
+    h2 { font-size:18px; margin-top:20px; }
     p { margin:12px 0; }
     section { margin-top:18px; }
     .muted { color:#666; font-size:14px; }
     footer { margin-top:28px; padding-top:12px; border-top:1px solid #eee; color:#666; font-size:13px; }
+    ul { margin:12px 0; padding-left:20px; }
+    li { margin:8px 0; }
+    
+    /* 语言选择器样式 */
+    .lang-selector { position: absolute; top: 0; right: 0; }
+    .lang-button {
+      background-color: #007AFF;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-list {
+      display: none;
+      position: absolute;
+      top: 36px;
+      right: 0;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      min-width: 120px;
+    }
+    .lang-list.active { display: block; }
+    .lang-list button {
+      width: 100%;
+      padding: 8px 12px;
+      border: none;
+      background: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .lang-list button:hover { background-color: #f0f0f0; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>用户协议</h1>
-    <div class="muted">适用于应用：<strong>印章模拟器</strong></div>
-    <div class="muted">生效日期：2026年5月22日</div>
-  </header>
+  <div class="container">
+    <header>
+      <div class="lang-selector">
+        <button id="langBtn" class="lang-button">中文</button>
+        <div id="langList" class="lang-list">
+          <button data-lang="zh">简体中文</button>
+          <button data-lang="en">English</button>
+        </div>
+      </div>
+      
+      <h1 data-lang-content="zh">用户协议</h1>
+      <h1 data-lang-content="en" style="display:none;">Terms of Service</h1>
+      <div class="muted" data-lang-content="zh">适用于应用：<strong>印章模拟器</strong></div>
+      <div class="muted" data-lang-content="en" style="display:none;">For App: <strong>Seal Maker</strong></div>
+      <div class="muted" data-lang-content="zh">生效日期: 2026-06-01</div>
+      <div class="muted" data-lang-content="en" style="display:none;">Effective Date: June 1, 2026</div>
+    </header>
+    <section>
+      <h2 data-lang-content="zh">一、协议说明</h2>
+      <h2 data-lang-content="en" style="display:none;">I. Agreement Description</h2>
+      <p data-lang-content="zh">欢迎使用 <strong>印章模拟器</strong>（以下简称“本应用”）。</p>
+      <p data-lang-content="en" style="display:none;">Welcome to use <strong>Seal Maker</strong> (hereinafter referred to as "this App").</p>
+      <p data-lang-content="zh">本用户协议（以下简称“本协议”）是您与本应用开发者之间关于使用本应用及相关服务所订立的协议。您在下载、安装或使用本应用前，请仔细阅读并充分理解本协议内容。</p>
+      <p data-lang-content="en" style="display:none;">These Terms of Service (hereinafter referred to as "this Agreement") constitute an agreement between you and the developer of this App regarding the use of this App and related services. Before downloading, installing, or using this App, please carefully read and fully understand the content of this Agreement.</p>
+      <p data-lang-content="zh">如您开始使用本应用，即视为您已阅读、理解并同意本协议的全部内容。</p>
+      <p data-lang-content="en" style="display:none;">By using this App, you are deemed to have read, understood, and agreed to all the terms of this Agreement.</p>
+    </section>
 
-  <section>
-    <h2>一、协议说明</h2>
-    <p>欢迎使用 <strong>印章模拟器</strong>（以下简称“本应用”）。</p>
-    <p>本用户协议（以下简称“本协议”）是您与本应用开发者之间关于使用本应用及相关服务所订立的协议。您在下载、安装或使用本应用前，请仔细阅读并充分理解本协议内容。</p>
-    <p>如您开始使用本应用，即视为您已阅读、理解并同意本协议的全部内容。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">二、应用功能说明</h2>
+      <h2 data-lang-content="en" style="display:none;">II. App Function Description</h2>
+      <p data-lang-content="zh">本应用是一款本地文件盖章工具，主要功能包括：</p>
+      <p data-lang-content="en" style="display:none;">This App is a local file stamping tool, with main functions including:</p>
+      <ul>
+        <li data-lang-content="zh">对图片文件进行印章添加与编辑；</li>
+        <li data-lang-content="en" style="display:none;">Adding and editing stamps on image files;</li>
+        <li data-lang-content="zh">对PDF文件进行印章添加与编辑；</li>
+        <li data-lang-content="en" style="display:none;">Adding and editing stamps on PDF files;</li>
+        <li data-lang-content="zh">印章的创建、保存与管理；</li>
+        <li data-lang-content="en" style="display:none;">Creating, saving, and managing stamps;</li>
+        <li data-lang-content="zh">盖章文件的保存与导出。</li>
+        <li data-lang-content="en" style="display:none;">Saving and exporting stamped files.</li>
+      </ul>
+      <p data-lang-content="zh"><strong>特别说明：</strong>本应用所有功能均在设备本地完成，不依赖云端服务。</p>
+      <p data-lang-content="en" style="display:none;"><strong>Special Note:</strong> All functions of this App are completed locally on the device and do not rely on cloud services.</p>
+    </section>
 
-  <section>
-    <h2>二、应用功能说明</h2>
-    <p>本应用是一款本地文件盖章工具，主要功能包括：</p>
-    <ul>
-      <li>对图片文件进行印章添加与编辑；</li>
-      <li>对PDF文件进行印章添加与编辑；</li>
-      <li>印章的创建、保存与管理；</li>
-      <li>盖章文件的保存与导出。</li>
-    </ul>
-    <p><strong>特别说明：</strong>本应用所有功能均在设备本地完成，不依赖云端服务。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">三、免费使用说明</h2>
+      <h2 data-lang-content="en" style="display:none;">III. Free Usage Description</h2>
+      <p data-lang-content="zh">新用户首次使用本应用时，可免费体验基本盖章功能。</p>
+      <p data-lang-content="en" style="display:none;">New users can experience basic stamping functions for free when first using this App.</p>
+      <p data-lang-content="zh">免费功能范围与使用规则以应用内实际展示为准。</p>
+      <p data-lang-content="en" style="display:none;">The scope and usage rules of free functions are subject to the actual display within the App.</p>
+    </section>
 
-  <section>
-    <h2>三、免费使用说明</h2>
-    <p>新用户首次使用本应用时，可免费体验基本盖章功能。</p>
-    <p>免费功能范围与使用规则以应用内实际展示为准。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">四、付费服务说明</h2>
+      <h2 data-lang-content="en" style="display:none;">IV. Paid Service Description</h2>
+      <p data-lang-content="zh">为满足不同用户的使用需求，本应用提供印章会员订阅服务：</p>
+      <p data-lang-content="en" style="display:none;">To meet the needs of different users, this App provides a Stamp Membership subscription service:</p>
+      <ul>
+        <li><strong data-lang-content="zh">印章会员订阅</strong><strong data-lang-content="en" style="display:none;">Stamp Membership Subscription</strong>：<span data-lang-content="zh">在订阅有效期内，用户可享受全部高级功能与权益；</span><span data-lang-content="en" style="display:none;">During the subscription period, users can enjoy all premium features and benefits;</span></li>
+      </ul>
+      <p data-lang-content="zh">具体服务内容、权益范围及使用规则以应用内页面说明为准。</p>
+      <p data-lang-content="en" style="display:none;">The specific service content, benefit scope, and usage rules are subject to the in-app page description.</p>
+    </section>
 
-  <section>
-    <h2>四、付费服务说明</h2>
-    <p>为满足不同用户的使用需求，本应用提供印章会员订阅服务：</p>
-    <ul>
-      <li><strong>印章会员订阅</strong>：在订阅有效期内，用户可享受全部高级功能与权益；</li>
-    </ul>
-    <p>具体服务内容、权益范围及使用规则以应用内页面说明为准。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">五、自动续订与取消订阅</h2>
+      <h2 data-lang-content="en" style="display:none;">V. Auto-Renewal and Cancellation</h2>
+      <p data-lang-content="zh">印章会员订阅服务为自动续订类型订阅。</p>
+      <p data-lang-content="en" style="display:none;">The Stamp Membership subscription service is an auto-renewing subscription.</p>
+      <ul>
+        <li data-lang-content="zh">订阅将在当前订阅周期结束前由 Apple 自动续订；</li>
+        <li data-lang-content="en" style="display:none;">The subscription will be automatically renewed by Apple before the current subscription period ends;</li>
+        <li data-lang-content="zh">除非您在当前订阅周期结束前至少 24 小时关闭自动续订，否则视为您同意继续订阅；</li>
+        <li data-lang-content="en" style="display:none;">Unless you turn off auto-renewal at least 24 hours before the end of the current subscription period, it will be deemed that you agree to continue the subscription;</li>
+        <li data-lang-content="zh">订阅费用将通过您的 Apple ID 账户进行扣费。</li>
+        <li data-lang-content="en" style="display:none;">Subscription fees will be charged through your Apple ID account.</li>
+      </ul>
+      <p data-lang-content="zh">如需取消订阅，您可在 iOS 系统中按以下步骤操作：</p>
+      <p data-lang-content="en" style="display:none;">To cancel the subscription, you can follow these steps in iOS:</p>
+      <ul>
+        <li data-lang-content="zh">打开「设置」→ 点击您的 Apple ID；</li>
+        <li data-lang-content="en" style="display:none;">Open Settings → Tap your Apple ID;</li>
+        <li data-lang-content="zh">进入「订阅」页面；</li>
+        <li data-lang-content="en" style="display:none;">Go to the Subscriptions page;</li>
+        <li data-lang-content="zh">选择本应用并关闭自动续订。</li>
+        <li data-lang-content="en" style="display:none;">Select this App and turn off auto-renewal.</li>
+      </ul>
+      <p data-lang-content="zh">取消订阅后，当前订阅周期内的权益仍可使用，订阅周期结束后不再续费。</p>
+      <p data-lang-content="en" style="display:none;">After canceling the subscription, benefits during the current subscription period can still be used, and no renewal will occur after the subscription period ends.</p>
+    </section>
 
-  <section>
-    <h2>五、自动续订与取消订阅</h2>
-    <p>印章会员订阅服务为自动续订类型订阅。</p>
-    <ul>
-      <li>订阅将在当前订阅周期结束前由 Apple 自动续订；</li>
-      <li>除非您在当前订阅周期结束前至少 24 小时关闭自动续订，否则视为您同意继续订阅；</li>
-      <li>订阅费用将通过您的 Apple ID 账户进行扣费。</li>
-    </ul>
-    <p>如需取消订阅，您可在 iOS 系统中按以下步骤操作：</p>
-    <ul>
-      <li>打开「设置」→ 点击您的 Apple ID；</li>
-      <li>进入「订阅」页面；</li>
-      <li>选择本应用并关闭自动续订。</li>
-    </ul>
-    <p>取消订阅后，当前订阅周期内的权益仍可使用，订阅周期结束后不再续费。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">六、使用规范</h2>
+      <h2 data-lang-content="en" style="display:none;">VI. Usage Guidelines</h2>
+      <p data-lang-content="zh">您在使用本应用过程中，应遵守相关法律法规，不得利用本应用从事任何违法、侵权或不当行为。</p>
+      <p data-lang-content="en" style="display:none;">When using this App, you shall comply with relevant laws and regulations and shall not use this App to engage in any illegal, infringing, or improper activities.</p>
+      <p data-lang-content="zh">您应确保所盖章、保存或分享的文件内容拥有合法使用权，如因内容本身产生的法律责任，由您自行承担。</p>
+      <p data-lang-content="en" style="display:none;">You shall ensure that you have the legal right to use the files you stamp, save, or share. Any legal liability arising from the content itself shall be borne by you.</p>
+      <p data-lang-content="zh">严禁使用本应用制作虚假印章或从事任何违法活动。</p>
+      <p data-lang-content="en" style="display:none;">It is strictly prohibited to use this App to create fake stamps or engage in any illegal activities.</p>
+    </section>
 
-  <section>
-    <h2>六、使用规范</h2>
-    <p>您在使用本应用过程中，应遵守相关法律法规，不得利用本应用从事任何违法、侵权或不当行为。</p>
-    <p>您应确保所盖章、保存或分享的文件内容拥有合法使用权，如因内容本身产生的法律责任，由您自行承担。</p>
-    <p>严禁使用本应用制作虚假印章或从事任何违法活动。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">七、免责声明</h2>
+      <h2 data-lang-content="en" style="display:none;">VII. Disclaimer</h2>
+      <p data-lang-content="zh">本应用按“现状”提供服务，在法律允许的范围内，不对因设备差异、系统版本或不可抗力导致的服务中断或数据异常承担责任。</p>
+      <p data-lang-content="en" style="display:none;">This App is provided "as is". To the extent permitted by law, we shall not be liable for service interruptions or data abnormalities caused by device differences, system versions, or force majeure.</p>
+      <p data-lang-content="zh">本应用不会对用户自行保存、分享或传播的盖章文件承担任何法律责任。</p>
+      <p data-lang-content="en" style="display:none;">This App shall not bear any legal responsibility for stamped files saved, shared, or disseminated by users.</p>
+    </section>
 
-  <section>
-    <h2>七、免责声明</h2>
-    <p>本应用按“现状”提供服务，在法律允许的范围内，不对因设备差异、系统版本或不可抗力导致的服务中断或数据异常承担责任。</p>
-    <p>本应用不会对用户自行保存、分享或传播的盖章文件承担任何法律责任。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">八、协议变更</h2>
+      <h2 data-lang-content="en" style="display:none;">VIII. Agreement Changes</h2>
+      <p data-lang-content="zh">我们有权在必要时对本协议进行更新。协议更新后将通过本页面进行公示，并以最新生效日期为准。</p>
+      <p data-lang-content="en" style="display:none;">We reserve the right to update this Agreement when necessary. After the update, it will be published on this page, and the latest effective date shall prevail.</p>
+      <p data-lang-content="zh">如您在协议更新后继续使用本应用，即视为您同意更新后的协议内容。</p>
+      <p data-lang-content="en" style="display:none;">If you continue to use this App after the Agreement is updated, you are deemed to have agreed to the updated content.</p>
+    </section>
 
-  <section>
-    <h2>八、协议变更</h2>
-    <p>我们有权在必要时对本协议进行更新。协议更新后将通过本页面进行公示，并以最新生效日期为准。</p>
-    <p>如您在协议更新后继续使用本应用，即视为您同意更新后的协议内容。</p>
-  </section>
+    <section>
+      <h2 data-lang-content="zh">九、联系方式</h2>
+      <h2 data-lang-content="en" style="display:none;">IX. Contact Information</h2>
+      <p data-lang-content="zh">如您对本协议有任何疑问或建议，可通过以下方式联系我们：</p>
+      <p data-lang-content="en" style="display:none;">If you have any questions or suggestions about this Agreement, please contact us via:</p>
+      <p><strong data-lang-content="zh">邮箱：</strong><strong data-lang-content="en" style="display:none;">Email:</strong> <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
+    </section>
 
-  <section>
-    <h2>九、联系方式</h2>
-    <p>如您对本协议有任何疑问或建议，可通过以下方式联系我们：</p>
-    <p><strong>邮箱：</strong> <a href="mailto:gigglebro@163.com">gigglebro@163.com</a></p>
-  </section>
+    <footer>
+      <div data-lang-content="zh">版权所有 © 印章模拟器开发团队</div>
+      <div data-lang-content="en" style="display:none;">Copyright © Seal Maker Development Team</div>
+    </footer>
+  </div>
 
-  <footer>
-    <div>版权所有 © 印章模拟器开发团队</div>
-  </footer>
+  <script>
+    const langBtn = document.getElementById('langBtn');
+    const langList = document.getElementById('langList');
+    const langButtons = langList.querySelectorAll('button');
+    const contents = document.querySelectorAll('[data-lang-content]');
+
+    langBtn.addEventListener('click', () => {
+      langList.classList.toggle('active');
+    });
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedLang = btn.getAttribute('data-lang');
+        contents.forEach(el => {
+          el.style.display =
+            el.getAttribute('data-lang-content') === selectedLang ? '' : 'none';
+        });
+        langList.classList.remove('active');
+        langBtn.textContent = btn.textContent;
+        document.documentElement.lang =
+          selectedLang === 'zh' ? 'zh-CN' : selectedLang;
+      });
+    });
+
+    window.addEventListener('load', () => {
+      langBtn.textContent = '简体中文';
+    });
+  </script>
 </body>
 </html>
